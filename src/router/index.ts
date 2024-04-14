@@ -10,12 +10,14 @@ const router = createBrowserRouter([
   {
     path: "/",
     Component: MainPage,
+    children: [
+      ...userRouter,
+      ...tradeRouter,
+      ...strategyRouter,
+      ...logRouter,
+      ...settingRouter,
+    ],
   },
-  ...userRouter,
-  ...tradeRouter,
-  ...strategyRouter,
-  ...logRouter,
-  ...settingRouter,
 ]);
 
 export default router;
