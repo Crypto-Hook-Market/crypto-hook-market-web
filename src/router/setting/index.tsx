@@ -3,8 +3,8 @@ import { RouteObject } from "react-router-dom";
 
 const settingRouter: RouteObject[] = [
   {
-    path: "/setting",
-    Component: SettingPage,
+    path: "setting",
+    element: <SettingPage />,
   },
 ];
 

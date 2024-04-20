@@ -3,8 +3,8 @@ import { RouteObject } from "react-router-dom";
 
 const tradeRouter: RouteObject[] = [
   {
-    path: "/trade",
-    Component: TradePage,
+    path: "trade",
+    element: <TradePage />,
   },
 ];
 

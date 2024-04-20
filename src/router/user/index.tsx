@@ -4,12 +4,12 @@ import { RouteObject } from "react-router-dom";
 
 const userRouter: RouteObject[] = [
   {
-    path: "/login",
-    Component: LoginPage,
+    path: "login",
+    element: <LoginPage />,
   },
   {
-    path: "/register",
-    Component: RegisterPage,
+    path: "register",
+    element: <RegisterPage />,
   },
 ];
 
