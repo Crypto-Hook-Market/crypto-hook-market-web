@@ -3,8 +3,8 @@ import { RouteObject } from "react-router-dom";
 
 const strategyRouter: RouteObject[] = [
   {
-    path: "/strategy",
-    Component: StrategyPage,
+    path: "strategy",
+    element: <StrategyPage />,
   },
 ];
 
