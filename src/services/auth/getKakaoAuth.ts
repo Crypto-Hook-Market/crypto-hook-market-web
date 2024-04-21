@@ -3,7 +3,11 @@ import instance from "@/services/instance";
 export const getKakaoUserInfo = () => {
   return instance.get(`https://kapi.kakao.com/v2/user/me`, {
     params: {
-      property_keys: ["kakao_account.name", "kakao_account.email"],
+      property_keys: [
+        "kakao_account.email",
+        "kakao_account.name",
+        "kakao_account.age_range",
+      ],
     },
     headers: {
       Authorization: `

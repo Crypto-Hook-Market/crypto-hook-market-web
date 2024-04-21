@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 const LoginPage = () => {
+  const navigate = useNavigate();
+
   /* redirect to Kakao Login */
   const handleKakaoLogin = () => {
     const kakaoURL = `${import.meta.env.VITE_KAKAO_LOGIN_URL}?client_id=${
@@ -8,6 +13,10 @@ const LoginPage = () => {
     }&response_type=code`;
     window.location.href = kakaoURL;
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("userInfo")) navigate("/");
+  });
 
   return (
     <>

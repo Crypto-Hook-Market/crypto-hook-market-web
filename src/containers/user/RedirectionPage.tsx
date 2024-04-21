@@ -12,8 +12,10 @@ const RedirectionPage = () => {
       localStorage.setItem("ACCESS_TOKEN", tokenResponse.data.access_token);
       localStorage.setItem("REFRESH_TOKEN", tokenResponse.data.refresh_token);
       const userInfoResponse = await getKakaoUserInfo();
-      console.log(userInfoResponse);
-      localStorage.setItem("userInfo", userInfoResponse.data);
+      localStorage.setItem(
+        "userInfo",
+        JSON.stringify(userInfoResponse.data.kakao_account)
+      );
     }
   };
 
