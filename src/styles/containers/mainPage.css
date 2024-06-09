@@ -1,0 +1,765 @@
+body {
+  background: #1f201d;
+  font-family: "SUIT", sans-serif;
+  overflow-x: auto;
+  min-width: 1280px;
+}
+
+/* 헤더 */
+body header {
+  height: 78px;
+  width: 100%;
+  min-width: 1280px;
+  line-height: 78px;
+  background: var(--gray900);
+  border-radius: 0 0 60px 60px;
+}
+body header .header-wrap {
+  width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+body header .header-wrap .logo {
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 40px;
+  background: var(--gray800);
+  text-align: center;
+  color: #fff;
+}
+body header .header-wrap .gnb {
+}
+body header .header-wrap .gnb ul {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+body header .header-wrap .gnb ul li a > span {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  vertical-align: middle;
+}
+body header .header-wrap .gnb ul li.ico-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+body header .header-wrap .gnb #modalMy {
+  position: absolute;
+  padding: 8px;
+  box-sizing: border-box;
+  z-index: 10;
+  right: 0;
+  bottom: -110px;
+  background: var(--gray900);
+  border-radius: 12px;
+  border: 1px solid var(--gray800);
+  width: 176px;
+  height: 124px;
+  line-height: normal;
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+body header .header-wrap .gnb #modalMy.on {
+  display: block;
+}
+body header .header-wrap .gnb #modalMy > div {
+  font-size: 14px;
+  height: calc(100% / 3);
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+body header .header-wrap .gnb #modalMy > .logout-btn:hover,
+#modalMy > .setting-btn:hover {
+  background: var(--gray800);
+}
+
+/* 메인_상단 summary */
+body main {
+  width: 1280px;
+  margin: 0 auto;
+}
+body main .summary {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body main .summary > div {
+  height: 217px;
+  border-radius: 12px;
+  padding: 40px 30px 20px 30px;
+  box-sizing: border-box;
+}
+body main .summary .balance-wrap {
+  width: 305px;
+  background: var(--gray800) url("/img/ico_dollar.png") no-repeat bottom right;
+}
+body main .summary .trades-wrap {
+  width: 414px;
+  background: var(--gray800) url("/img/ico_trades.png") no-repeat bottom right;
+  position: relative;
+}
+body main .summary .pnl-wrap {
+  width: 414px;
+  background: var(--gray800);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+body main .summary .pnl-wrap .con-wrap {
+  align-items: normal;
+}
+body main .summary .con-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body main .summary .con {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body main .summary .con .num {
+  font-size: 24px;
+  color: #fff;
+}
+body main .summary .con .txt {
+  font-size: 16px;
+  color: var(--gray400);
+}
+body main .summary #selectDate {
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: var(--gray700);
+  color: #fff;
+  border: none;
+}
+body main .summary .trades-wrap .status {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 12px;
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+}
+body main .summary .trades-wrap .status.closed {
+  border: 1px solid var(--yellow100);
+  background: rgba(250, 223, 80, 0.5);
+}
+body main .summary .trades-wrap .status .ico-status {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--yellow400);
+  vertical-align: middle;
+  margin-right: 5px;
+}
+body main .summary .pnl-wrap .graph-wrap {
+  text-align: center;
+}
+body main .summary .pnl-wrap .con .per {
+  display: inline-block;
+  padding: 0 8px;
+  height: 28px;
+  line-height: 28px;
+  background: var(--gray700);
+  font-size: 14px;
+  border-radius: 8px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+body main .summary .pnl-wrap .con .per > img {
+  margin-right: 5px;
+}
+body main .summary .pnl-wrap .con .per.up {
+  color: #ee5454;
+}
+body main .summary .pnl-wrap .con .per.down {
+  color: #71e868;
+}
+body main .summary .pnl-wrap .con .per.total {
+  color: var(--yellow500);
+  margin: 0 auto;
+  width: 50px;
+}
+
+/* 메인_광고 */
+body main .ad-area {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 메인_현재 매매중인 코인 목록 */
+/* body main .coin-list-wrap {overflow: hidden;} */
+body main .coin-list-wrap {
+  margin-top: 160px;
+  overflow: hidden;
+}
+body main .coin-list-wrap .title {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+body main .coin-list-wrap .coin-list .swiper-wrapper .swiper-slide {
+  background: var(--gray800);
+  border: 1px solid var(--gray700);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+}
+body main .coin-list-wrap .coin-list .swiper-wrapper .swiper-slide .top {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+body
+  main
+  .coin-list-wrap
+  .coin-list
+  .swiper-wrapper
+  .swiper-slide
+  .top
+  .coin-info {
+  display: flex;
+  flex-direction: column;
+}
+body
+  main
+  .coin-list-wrap
+  .coin-list
+  .swiper-wrapper
+  .swiper-slide
+  .top
+  .coin-info
+  .coin-name {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+body
+  main
+  .coin-list-wrap
+  .coin-list
+  .swiper-wrapper
+  .swiper-slide
+  .top
+  .coin-info
+  .start-time {
+  color: var(--gray400);
+  font-size: 12px;
+  font-weight: 400;
+}
+body main .coin-list-wrap .coin-list .swiper-wrapper .swiper-slide .mid {
+  margin-top: 24px;
+}
+body main .coin-list-wrap .coin-list .swiper-wrapper .swiper-slide .mid ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+body main .coin-list-wrap .coin-list .swiper-wrapper .swiper-slide .mid ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body
+  main
+  .coin-list-wrap
+  .coin-list
+  .swiper-wrapper
+  .swiper-slide
+  .mid
+  ul
+  li
+  .title {
+  color: var(--gray400);
+  font-size: 14px;
+  font-weight: 400;
+}
+body
+  main
+  .coin-list-wrap
+  .coin-list
+  .swiper-wrapper
+  .swiper-slide
+  .mid
+  ul
+  li
+  .text {
+  color: var(--gray100);
+  font-size: 14px;
+  font-weight: 400;
+}
+body
+  main
+  .coin-list-wrap
+  .coin-list
+  .swiper-wrapper
+  .swiper-slide
+  .bot
+  .graph-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+body
+  main
+  .coin-list-wrap
+  .coin-list
+  .swiper-wrapper
+  .swiper-slide
+  .bot
+  .graph-wrap
+  img {
+  width: 100%;
+}
+/* 스와이퍼 스크롤 */
+body main .swiper-horizontal > .swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+  width: 1280px;
+  margin: auto;
+  position: static;
+  margin-top: 30px;
+  height: 12px;
+}
+body main .swiper-scrollbar-drag {
+  height: 12px;
+  background: var(--gray850);
+}
+
+/* 메인_마이 코인 테이블 */
+body main .my-coin-wrap {
+  margin-top: 162px;
+  margin-bottom: 143px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+body main .my-coin-wrap .left {
+  width: 738px;
+}
+body main .my-coin-wrap .left .tab-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+body main .my-coin-wrap .left .tab-wrap ul {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+body main .my-coin-wrap .left .tab-wrap ul li > a {
+  display: inline-block;
+  height: 46px;
+  line-height: 46px;
+  padding: 0 20px;
+  border-radius: 8px;
+  background: var(--gray700);
+  color: var(--gray400);
+}
+body main .my-coin-wrap .left .tab-wrap ul li.on > a {
+  background: var(--gray950);
+  color: #fff;
+}
+body main .my-coin-wrap .left .tab-wrap .more-btn {
+  font-size: 16px;
+  font-weight: 400;
+}
+body main .my-coin-wrap .left .coin-table {
+  margin-top: 20px;
+  border: 1px solid var(--gray400);
+  border-radius: 12px;
+}
+body main .my-coin-wrap .left .coin-table table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+body main .my-coin-wrap .left .coin-table table thead {
+  background: var(--gray800);
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  color: var(--gray400);
+}
+/* body main .my-coin-wrap .left .coin-table table tr {padding: 20px;} */
+body main .my-coin-wrap .left .coin-table table tr:nth-child(odd) {
+  background: transparent;
+}
+body main .my-coin-wrap .left .coin-table table tr:nth-child(even) {
+  background: var(--gray950);
+}
+body main .my-coin-wrap .left .coin-table table tr td {
+  text-align: center;
+  padding: 20px;
+  color: var(--gray400);
+  vertical-align: middle;
+}
+body main .my-coin-wrap .left .coin-table table tr td .coin-name {
+  display: flex;
+  gap: 5px;
+}
+body main .my-coin-wrap .left .coin-table table tr td .coin-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+body main .my-coin-wrap .left .coin-table table tr td .coin-info .name {
+  color: #fff;
+}
+body main .my-coin-wrap .left .coin-table table tr td .coin-date {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+body main .my-coin-wrap .left .coin-table table tr td .result {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+body main .my-coin-wrap .left .coin-table table tr td .result .result-per {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #d34c4c;
+}
+body
+  main
+  .my-coin-wrap
+  .left
+  .coin-table
+  table
+  tr
+  td
+  .result
+  .result-per
+  .ico-per {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gray800);
+}
+body
+  main
+  .my-coin-wrap
+  .left
+  .coin-table
+  table
+  tr
+  td
+  .result
+  .result-per
+  .ico-per.up {
+  background: var(--gray800) url("/img/ico_arr_down_r.png") no-repeat center
+    center;
+}
+body
+  main
+  .my-coin-wrap
+  .left
+  .coin-table
+  table
+  tr
+  td
+  .result
+  .result-per
+  .ico-per.down {
+  background: var(--gray800) url("/img/ico_arr_up_y.png") no-repeat center
+    center;
+}
+
+body main .my-coin-wrap .right {
+  width: calc(100% - 758px);
+  overflow: hidden;
+}
+body main .my-coin-wrap .right .top-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+body main .my-coin-wrap .right .top-wrap .title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+}
+body main .my-coin-wrap .right .top-wrap .select-list select {
+  appearance: none;
+  width: 128px;
+  height: 46px;
+  border-radius: 8px;
+  background: var(--gray700) url("/img/ico_status_ing.png") no-repeat center
+    right 12px;
+  border: none;
+  padding: 0 12px;
+  box-sizing: border-box;
+  color: #fff;
+}
+body main .my-coin-wrap .right .recomman-list ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+body main .my-coin-wrap .right .recomman-list ul li {
+  background: var(--gray800);
+  border-radius: 12px;
+  overflow: hidden;
+}
+body main .my-coin-wrap .right .recomman-list ul li a {
+  display: flex;
+}
+body main .my-coin-wrap .right .recomman-list ul li .img-wrap {
+  width: 150px;
+  height: 180px;
+}
+body main .my-coin-wrap .right .recomman-list ul li .img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+body main .my-coin-wrap .right .recomman-list ul li .list-info {
+  width: calc(100% - 150px);
+  padding: 26px 24px;
+  box-sizing: border-box;
+  position: relative;
+}
+body main .my-coin-wrap .right .recomman-list ul li .list-info .fee-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  gap: 16px;
+}
+body
+  main
+  .my-coin-wrap
+  .right
+  .recomman-list
+  ul
+  li
+  .list-info
+  .fee-wrap
+  .participate {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body
+  main
+  .my-coin-wrap
+  .right
+  .recomman-list
+  ul
+  li
+  .list-info
+  .fee-wrap
+  .participate
+  > div {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gray400);
+}
+body
+  main
+  .my-coin-wrap
+  .right
+  .recomman-list
+  ul
+  li
+  .list-info
+  .fee-wrap
+  .participate
+  > div
+  > span {
+  display: inline-block;
+  width: 35px;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 90px;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  margin-right: 4px;
+}
+body
+  main
+  .my-coin-wrap
+  .right
+  .recomman-list
+  ul
+  li
+  .list-info
+  .fee-wrap
+  .participate
+  > div
+  > span.min {
+  background: rgba(255, 234, 122, 0.2);
+}
+body
+  main
+  .my-coin-wrap
+  .right
+  .recomman-list
+  ul
+  li
+  .list-info
+  .fee-wrap
+  .participate
+  > div
+  > span.max {
+  background: rgba(238, 84, 84, 0.2);
+}
+body main .my-coin-wrap .right .recomman-list ul li .list-info .title {
+  font-size: 14px;
+  font-weight: 400;
+}
+body main .my-coin-wrap .right .recomman-list ul li .list-info .tag-wrap {
+  margin-top: 24px;
+}
+body main .my-coin-wrap .right .recomman-list ul li .list-info .tag-wrap ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+body main .my-coin-wrap .right .recomman-list ul li .list-info .tag-wrap ul li {
+  height: 24px;
+  line-height: 24px;
+  padding: 0 8px;
+  background: var(--gray700);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #aaaaaa;
+}
+body
+  main
+  .my-coin-wrap
+  .right
+  .recomman-list
+  ul
+  li
+  .list-info
+  .tag-wrap
+  ul
+  li.tag-per.up {
+  color: var(--green500);
+}
+body
+  main
+  .my-coin-wrap
+  .right
+  .recomman-list
+  ul
+  li
+  .list-info
+  .tag-wrap
+  ul
+  li.tag-per.down {
+  color: var(--green500);
+}
+body
+  main
+  .my-coin-wrap
+  .right
+  .recomman-list
+  ul
+  li
+  .list-info
+  .tag-wrap
+  ul
+  li
+  > img {
+  vertical-align: middle;
+}
+body main .my-coin-wrap .right .recomman-list ul li .list-info .owner {
+  position: absolute;
+  right: 23px;
+  bottom: 28px;
+  color: var(--gray400);
+  font-size: 14px;
+}
+
+/* 푸터 */
+body footer {
+  width: 100%;
+  min-width: 1280px;
+  background: var(--gray700);
+  padding-top: 70px;
+  padding-bottom: 50px;
+}
+body footer .footer-wrap {
+  width: 1280px;
+  margin: 0 auto;
+}
+.footer-wrap .top {
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--gray400);
+}
+body footer .footer-wrap .logo {
+  width: 120px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 50px;
+  background: var(--gray800);
+}
+body footer .footer-wrap .sub-txt {
+  margin-top: 16px;
+  color: var(--gray400);
+  font-weight: 400;
+  line-height: 1.5;
+}
+body footer .footer-wrap .bot {
+  margin-top: 36px;
+}
+body footer .footer-wrap .bot ul {
+  display: flex;
+  gap: 56px;
+}
+body footer .footer-wrap .bot .footer-ico {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  border-radius: 50%;
+  background: var(--gray900);
+  margin-bottom: 4px;
+}
+body footer .footer-wrap .bot .fnb-title {
+  color: #fff;
+}
+body footer .footer-wrap .bot .fnb-txt {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+body footer .footer-wrap .bot .fnb-txt li a {
+  color: var(--gray400);
+  font-weight: 400;
+}
