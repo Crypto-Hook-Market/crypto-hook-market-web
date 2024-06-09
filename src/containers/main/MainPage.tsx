@@ -2,8 +2,11 @@ import Badge from "@/components/Badge";
 import { Slider } from "@/components/Slider";
 import "@/styles/containers/mainPage.css";
 import { amountConverter } from "@/utils/converter";
+import { useState } from "react";
 
 const MainPage = () => {
+  const [recommandSelect, setRecommandSelect] = useState("ror");
+
   const mockStrategy = [
     {
       coinName: "bitcoin",
@@ -42,6 +45,120 @@ const MainPage = () => {
       pnl: "32.3%",
     },
   ];
+
+  const mockRecommand = [
+    {
+      coinName: "bitcoin",
+      price: 5000,
+      min: 50000,
+      max: 100000,
+      percent: "12%",
+      cycle: "4h",
+      count: 10,
+      strategyTitle: "한 달 10%는 무조건 먹는 자동 매매 전략",
+      owner: "김재홍",
+    },
+    {
+      coinName: "bitcoin",
+      price: 5000,
+      min: 50000,
+      max: 100000,
+      percent: "12%",
+      cycle: "4h",
+      count: 10,
+      strategyTitle: "한 달 10%는 무조건 먹는 자동 매매 전략",
+      owner: "김재홍",
+    },
+    {
+      coinName: "bitcoin",
+      price: 5000,
+      min: 50000,
+      max: 100000,
+      percent: "12%",
+      cycle: "4h",
+      count: 10,
+      strategyTitle: "한 달 10%는 무조건 먹는 자동 매매 전략",
+      owner: "김재홍",
+    },
+    {
+      coinName: "bitcoin",
+      price: 5000,
+      min: 50000,
+      max: 100000,
+      percent: "12%",
+      cycle: "4h",
+      count: 10,
+      strategyTitle: "한 달 10%는 무조건 먹는 자동 매매 전략",
+      owner: "김재홍",
+    },
+  ];
+
+  const recommandList = mockRecommand.map((element) => (
+    <li className="swiper-slide">
+      <a href="javascript:void(0);">
+        <div className="img-wrap">
+          <img src="/img/sample_recommand_list.png" alt="" />
+          <span className="ppl-num">
+            <span className="ico-ppl">
+              <img src="/img/ico_ppl.png" alt="" />
+            </span>
+            11
+          </span>
+        </div>
+        <div className="list-info">
+          <div className="fee-wrap">
+            <div className="pri">{amountConverter(element.price)}</div>
+            <div className="participate">
+              <div className="min">
+                <span className="ico-fee min">min</span>
+                {amountConverter(element.min)}
+              </div>
+              <div className="max">
+                <span className="ico-fee max">max</span>
+                {amountConverter(element.max)}
+              </div>
+            </div>
+          </div>
+          <div className="title">{element.strategyTitle}</div>
+          <div className="tag-wrap">
+            <ul>
+              <li>
+                <span className="ico-tag">
+                  <img src="/img/ico_ppl.png" alt="" />
+                </span>
+                {element.coinName}
+              </li>
+              <li>
+                <span className="ico-tag">
+                  <img src="/img/ico_ppl.png" alt="" />
+                </span>
+                {element.coinName}
+              </li>
+              <li className="tag-per up">
+                <span className="ico-tag">
+                  <img src="/img/ico_arr_up_g.png" alt="" />
+                </span>
+                {element.percent}
+              </li>
+              <li>
+                <span className="ico-tag">
+                  <img src="/img/ico_ppl.png" alt="" />
+                </span>
+                {element.cycle}
+              </li>
+              <li>
+                <span className="ico-tag">
+                  <img src="/img/ico_ppl.png" alt="" />
+                </span>
+                {element.count}회
+              </li>
+            </ul>
+          </div>
+          <span className="owner">{element.owner}</span>
+        </div>
+      </a>
+    </li>
+  ));
   return (
     <main>
       <div className="section summary">
@@ -99,14 +216,14 @@ const MainPage = () => {
             </div>
           </div>
           <div className="graph-wrap">
-            <img src="/img/img_graph.png" alt="" />
+            <img src="@/assets/images/img_graph.png" alt="" />
           </div>
         </div>
       </div>
       <div className="section ad-area">
         <div className="banner1">
           <a href="javascript:void(0);">
-            <img src="img/sample_banner1.png" alt="" />
+            <img src="@/assets/images/sample_banner1.png" alt="" />
           </a>
         </div>
         <div className="banner2">
@@ -431,784 +548,28 @@ const MainPage = () => {
           <div className="top-wrap">
             <div className="title">추천 전략 목록</div>
             <div className="select-list">
-              <select name="recommandList" id="recommandList">
-                <option value="ror">수익률순</option>
-                <option value="subscriber">구독자순</option>
-                <option value="subscriptionFee">적은 구독료순</option>
+              <select
+                name="recommandList"
+                id="recommandList"
+                value={recommandSelect}
+                onChange={(event) => {
+                  setRecommandSelect((event.target as HTMLSelectElement).value);
+                }}
+              >
+                <option key={1} value="ror">
+                  수익률순
+                </option>
+                <option key={2} value="subscriber">
+                  구독자순
+                </option>
+                <option key={3} value="subscriptionFee">
+                  적은 구독료순
+                </option>
               </select>
             </div>
           </div>
           <div className="recomman-list swiper-container">
-            <ul className="swiper-wrapper">
-              <li className="swiper-slide">
-                <a href="javascript:void(0);">
-                  <div className="img-wrap">
-                    <img src="/img/sample_recommand_list.png" alt="" />
-                    <span className="ppl-num">
-                      <span className="ico-ppl">
-                        <img src="/img/ico_ppl.png" alt="" />
-                      </span>
-                      11
-                    </span>
-                  </div>
-                  <div className="list-info">
-                    <div className="fee-wrap">
-                      <div className="pri">5,000</div>
-                      <div className="participate">
-                        <div className="min">
-                          <span className="ico-fee min">min</span>50,000
-                        </div>
-                        <div className="max">
-                          <span className="ico-fee max">max</span>100,000
-                        </div>
-                      </div>
-                    </div>
-                    <div className="title">
-                      한 달 10%는 무조건 먹는 자동 매매 전략
-                    </div>
-                    <div className="tag-wrap">
-                      <ul>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li className="tag-per up">
-                          <span className="ico-tag">
-                            <img src="/img/ico_arr_up_g.png" alt="" />
-                          </span>
-                          12%
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          4시간봉
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          10회
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="owner">김재홍</span>
-                  </div>
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="javascript:void(0);">
-                  <div className="img-wrap">
-                    <img src="/img/sample_recommand_list.png" alt="" />
-                    <span className="ppl-num">
-                      <span className="ico-ppl">
-                        <img src="/img/ico_ppl.png" alt="" />
-                      </span>
-                      11
-                    </span>
-                  </div>
-                  <div className="list-info">
-                    <div className="fee-wrap">
-                      <div className="pri">5,000</div>
-                      <div className="participate">
-                        <div className="min">
-                          <span className="ico-fee min">min</span>50,000
-                        </div>
-                        <div className="max">
-                          <span className="ico-fee max">max</span>100,000
-                        </div>
-                      </div>
-                    </div>
-                    <div className="title">
-                      한 달 10%는 무조건 먹는 자동 매매 전략
-                    </div>
-                    <div className="tag-wrap">
-                      <ul>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li className="tag-per up">
-                          <span className="ico-tag">
-                            <img src="/img/ico_arr_up_g.png" alt="" />
-                          </span>
-                          12%
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          4시간봉
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          10회
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="owner">김재홍</span>
-                  </div>
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="javascript:void(0);">
-                  <div className="img-wrap">
-                    <img src="/img/sample_recommand_list.png" alt="" />
-                    <span className="ppl-num">
-                      <span className="ico-ppl">
-                        <img src="/img/ico_ppl.png" alt="" />
-                      </span>
-                      11
-                    </span>
-                  </div>
-                  <div className="list-info">
-                    <div className="fee-wrap">
-                      <div className="pri">5,000</div>
-                      <div className="participate">
-                        <div className="min">
-                          <span className="ico-fee min">min</span>50,000
-                        </div>
-                        <div className="max">
-                          <span className="ico-fee max">max</span>100,000
-                        </div>
-                      </div>
-                    </div>
-                    <div className="title">
-                      한 달 10%는 무조건 먹는 자동 매매 전략
-                    </div>
-                    <div className="tag-wrap">
-                      <ul>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li className="tag-per up">
-                          <span className="ico-tag">
-                            <img src="/img/ico_arr_up_g.png" alt="" />
-                          </span>
-                          12%
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          4시간봉
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          10회
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="owner">김재홍</span>
-                  </div>
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="javascript:void(0);">
-                  <div className="img-wrap">
-                    <img src="/img/sample_recommand_list.png" alt="" />
-                    <span className="ppl-num">
-                      <span className="ico-ppl">
-                        <img src="/img/ico_ppl.png" alt="" />
-                      </span>
-                      11
-                    </span>
-                  </div>
-                  <div className="list-info">
-                    <div className="fee-wrap">
-                      <div className="pri">5,000</div>
-                      <div className="participate">
-                        <div className="min">
-                          <span className="ico-fee min">min</span>50,000
-                        </div>
-                        <div className="max">
-                          <span className="ico-fee max">max</span>100,000
-                        </div>
-                      </div>
-                    </div>
-                    <div className="title">
-                      한 달 10%는 무조건 먹는 자동 매매 전략
-                    </div>
-                    <div className="tag-wrap">
-                      <ul>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li className="tag-per up">
-                          <span className="ico-tag">
-                            <img src="/img/ico_arr_up_g.png" alt="" />
-                          </span>
-                          12%
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          4시간봉
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          10회
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="owner">김재홍</span>
-                  </div>
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="javascript:void(0);">
-                  <div className="img-wrap">
-                    <img src="/img/sample_recommand_list.png" alt="" />
-                    <span className="ppl-num">
-                      <span className="ico-ppl">
-                        <img src="/img/ico_ppl.png" alt="" />
-                      </span>
-                      11
-                    </span>
-                  </div>
-                  <div className="list-info">
-                    <div className="fee-wrap">
-                      <div className="pri">5,000</div>
-                      <div className="participate">
-                        <div className="min">
-                          <span className="ico-fee min">min</span>50,000
-                        </div>
-                        <div className="max">
-                          <span className="ico-fee max">max</span>100,000
-                        </div>
-                      </div>
-                    </div>
-                    <div className="title">
-                      한 달 10%는 무조건 먹는 자동 매매 전략
-                    </div>
-                    <div className="tag-wrap">
-                      <ul>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li className="tag-per up">
-                          <span className="ico-tag">
-                            <img src="/img/ico_arr_up_g.png" alt="" />
-                          </span>
-                          12%
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          4시간봉
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          10회
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="owner">김재홍</span>
-                  </div>
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="javascript:void(0);">
-                  <div className="img-wrap">
-                    <img src="/img/sample_recommand_list.png" alt="" />
-                    <span className="ppl-num">
-                      <span className="ico-ppl">
-                        <img src="/img/ico_ppl.png" alt="" />
-                      </span>
-                      11
-                    </span>
-                  </div>
-                  <div className="list-info">
-                    <div className="fee-wrap">
-                      <div className="pri">5,000</div>
-                      <div className="participate">
-                        <div className="min">
-                          <span className="ico-fee min">min</span>50,000
-                        </div>
-                        <div className="max">
-                          <span className="ico-fee max">max</span>100,000
-                        </div>
-                      </div>
-                    </div>
-                    <div className="title">
-                      한 달 10%는 무조건 먹는 자동 매매 전략
-                    </div>
-                    <div className="tag-wrap">
-                      <ul>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li className="tag-per up">
-                          <span className="ico-tag">
-                            <img src="/img/ico_arr_up_g.png" alt="" />
-                          </span>
-                          12%
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          4시간봉
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          10회
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="owner">김재홍</span>
-                  </div>
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="javascript:void(0);">
-                  <div className="img-wrap">
-                    <img src="/img/sample_recommand_list.png" alt="" />
-                    <span className="ppl-num">
-                      <span className="ico-ppl">
-                        <img src="/img/ico_ppl.png" alt="" />
-                      </span>
-                      11
-                    </span>
-                  </div>
-                  <div className="list-info">
-                    <div className="fee-wrap">
-                      <div className="pri">5,000</div>
-                      <div className="participate">
-                        <div className="min">
-                          <span className="ico-fee min">min</span>50,000
-                        </div>
-                        <div className="max">
-                          <span className="ico-fee max">max</span>100,000
-                        </div>
-                      </div>
-                    </div>
-                    <div className="title">
-                      한 달 10%는 무조건 먹는 자동 매매 전략
-                    </div>
-                    <div className="tag-wrap">
-                      <ul>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li className="tag-per up">
-                          <span className="ico-tag">
-                            <img src="/img/ico_arr_up_g.png" alt="" />
-                          </span>
-                          12%
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          4시간봉
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          10회
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="owner">김재홍</span>
-                  </div>
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="javascript:void(0);">
-                  <div className="img-wrap">
-                    <img src="/img/sample_recommand_list.png" alt="" />
-                    <span className="ppl-num">
-                      <span className="ico-ppl">
-                        <img src="/img/ico_ppl.png" alt="" />
-                      </span>
-                      11
-                    </span>
-                  </div>
-                  <div className="list-info">
-                    <div className="fee-wrap">
-                      <div className="pri">5,000</div>
-                      <div className="participate">
-                        <div className="min">
-                          <span className="ico-fee min">min</span>50,000
-                        </div>
-                        <div className="max">
-                          <span className="ico-fee max">max</span>100,000
-                        </div>
-                      </div>
-                    </div>
-                    <div className="title">
-                      한 달 10%는 무조건 먹는 자동 매매 전략
-                    </div>
-                    <div className="tag-wrap">
-                      <ul>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li className="tag-per up">
-                          <span className="ico-tag">
-                            <img src="/img/ico_arr_up_g.png" alt="" />
-                          </span>
-                          12%
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          4시간봉
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          10회
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="owner">김재홍</span>
-                  </div>
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="javascript:void(0);">
-                  <div className="img-wrap">
-                    <img src="/img/sample_recommand_list.png" alt="" />
-                    <span className="ppl-num">
-                      <span className="ico-ppl">
-                        <img src="/img/ico_ppl.png" alt="" />
-                      </span>
-                      11
-                    </span>
-                  </div>
-                  <div className="list-info">
-                    <div className="fee-wrap">
-                      <div className="pri">5,000</div>
-                      <div className="participate">
-                        <div className="min">
-                          <span className="ico-fee min">min</span>50,000
-                        </div>
-                        <div className="max">
-                          <span className="ico-fee max">max</span>100,000
-                        </div>
-                      </div>
-                    </div>
-                    <div className="title">
-                      한 달 10%는 무조건 먹는 자동 매매 전략
-                    </div>
-                    <div className="tag-wrap">
-                      <ul>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li className="tag-per up">
-                          <span className="ico-tag">
-                            <img src="/img/ico_arr_up_g.png" alt="" />
-                          </span>
-                          12%
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          4시간봉
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          10회
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="owner">김재홍</span>
-                  </div>
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="javascript:void(0);">
-                  <div className="img-wrap">
-                    <img src="/img/sample_recommand_list.png" alt="" />
-                    <span className="ppl-num">
-                      <span className="ico-ppl">
-                        <img src="/img/ico_ppl.png" alt="" />
-                      </span>
-                      11
-                    </span>
-                  </div>
-                  <div className="list-info">
-                    <div className="fee-wrap">
-                      <div className="pri">5,000</div>
-                      <div className="participate">
-                        <div className="min">
-                          <span className="ico-fee min">min</span>50,000
-                        </div>
-                        <div className="max">
-                          <span className="ico-fee max">max</span>100,000
-                        </div>
-                      </div>
-                    </div>
-                    <div className="title">
-                      한 달 10%는 무조건 먹는 자동 매매 전략
-                    </div>
-                    <div className="tag-wrap">
-                      <ul>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li className="tag-per up">
-                          <span className="ico-tag">
-                            <img src="/img/ico_arr_up_g.png" alt="" />
-                          </span>
-                          12%
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          4시간봉
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          10회
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="owner">김재홍</span>
-                  </div>
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="javascript:void(0);">
-                  <div className="img-wrap">
-                    <img src="/img/sample_recommand_list.png" alt="" />
-                    <span className="ppl-num">
-                      <span className="ico-ppl">
-                        <img src="/img/ico_ppl.png" alt="" />
-                      </span>
-                      11
-                    </span>
-                  </div>
-                  <div className="list-info">
-                    <div className="fee-wrap">
-                      <div className="pri">5,000</div>
-                      <div className="participate">
-                        <div className="min">
-                          <span className="ico-fee min">min</span>50,000
-                        </div>
-                        <div className="max">
-                          <span className="ico-fee max">max</span>100,000
-                        </div>
-                      </div>
-                    </div>
-                    <div className="title">
-                      한 달 10%는 무조건 먹는 자동 매매 전략
-                    </div>
-                    <div className="tag-wrap">
-                      <ul>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li className="tag-per up">
-                          <span className="ico-tag">
-                            <img src="/img/ico_arr_up_g.png" alt="" />
-                          </span>
-                          12%
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          4시간봉
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          10회
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="owner">김재홍</span>
-                  </div>
-                </a>
-              </li>
-              <li className="swiper-slide">
-                <a href="javascript:void(0);">
-                  <div className="img-wrap">
-                    <img src="/img/sample_recommand_list.png" alt="" />
-                    <span className="ppl-num">
-                      <span className="ico-ppl">
-                        <img src="/img/ico_ppl.png" alt="" />
-                      </span>
-                      11
-                    </span>
-                  </div>
-                  <div className="list-info">
-                    <div className="fee-wrap">
-                      <div className="pri">5,000</div>
-                      <div className="participate">
-                        <div className="min">
-                          <span className="ico-fee min">min</span>50,000
-                        </div>
-                        <div className="max">
-                          <span className="ico-fee max">max</span>100,000
-                        </div>
-                      </div>
-                    </div>
-                    <div className="title">
-                      한 달 10%는 무조건 먹는 자동 매매 전략
-                    </div>
-                    <div className="tag-wrap">
-                      <ul>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          Bitcoin
-                        </li>
-                        <li className="tag-per up">
-                          <span className="ico-tag">
-                            <img src="/img/ico_arr_up_g.png" alt="" />
-                          </span>
-                          12%
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          4시간봉
-                        </li>
-                        <li>
-                          <span className="ico-tag">
-                            <img src="/img/ico_ppl.png" alt="" />
-                          </span>
-                          10회
-                        </li>
-                      </ul>
-                    </div>
-                    <span className="owner">김재홍</span>
-                  </div>
-                </a>
-              </li>
-            </ul>
+            <ul className="swiper-wrapper">{recommandList}</ul>
           </div>
         </div>
       </div>

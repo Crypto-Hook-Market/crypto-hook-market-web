@@ -11,7 +11,7 @@ export const Slider = ({ children }: { children: summaryMockType[] }) => {
         <a href="javascript:void(0);">
           <div className="top">
             <div className="ico-coin">
-              <img src="/img/ico_bitcoin.png" alt="" />
+              <img src="@/assets/images/ico_bitcoin.png" alt="" />
             </div>
             <div className="coin-info">
               <div className="coin-name">{child.coinName}</div>
@@ -43,7 +43,7 @@ export const Slider = ({ children }: { children: summaryMockType[] }) => {
           </div>
           <div className="bot">
             <div className="graph-wrap">
-              <img src="img/img_graph2.png" alt="" />
+              <img src="@/assets/images/img_graph2.png" alt="" />
             </div>
           </div>
         </a>
